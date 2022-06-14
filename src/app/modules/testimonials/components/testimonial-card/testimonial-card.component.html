@@ -1,0 +1,32 @@
+<mat-card class="example-card" [id]="testimonial.name">
+    <div class="header-card">
+        <mat-card-header>
+            <div mat-card-avatar class="header-image">
+                <img src="assets/img/logos/icon@3x.png" alt="Photo of a Shiba Inu">
+            </div>
+            <mat-card-title>{{ testimonial.name }}</mat-card-title>
+            <mat-card-subtitle>{{ testimonial.profesion }}</mat-card-subtitle>
+
+        </mat-card-header>
+        <div class="image-logo">
+            <img src="assets/img/logos/icon@3x.png" alt="Photo of a Shiba Inu">
+        </div>
+
+    </div>
+
+    <mat-card-content class="content-post">
+        <p class="text">
+            {{ testimonial.post }}
+        </p>
+    </mat-card-content>
+
+    <div class="footerCard">
+        <p class="date">
+            {{ testimonial.date }}
+        </p>
+        <p class="origin">
+            {{ testimonial.origin }}
+        </p>
+    </div>
+
+</mat-card>

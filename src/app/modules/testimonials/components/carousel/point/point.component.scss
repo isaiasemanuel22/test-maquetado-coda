@@ -1,0 +1,19 @@
+.point {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: #04d9d9;
+    // background-color: #003559;
+}
+
+.active{
+    background-color: #04d9d9; 
+}
+
+
+.inactive{
+    background-color: #0035597c; 
+    
+}

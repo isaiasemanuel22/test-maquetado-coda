@@ -1,0 +1,196 @@
+@import "../../../../../assets/styles/vars";
+$sidebar_width: 60px;
+$sidebar_width_open: 240px;
+$toolbar_height: 56px;
+
+.main-layout {
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.75);
+    opacity: 0;
+    z-index: -999;
+    transition: all 0.3s ease;
+  }
+
+  .background-active {
+    z-index: 9;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: $white_high_emphasis;
+  }
+
+  .toolbar {
+    background-color: white;
+    box-sizing: border-box;
+    /* border-bottom: $borderLight; */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: $animation;
+    border-bottom: 1px solid transparent;
+    @include lt-md{
+      display: none;
+    }
+
+    .container {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+
+      .rows {
+        width: 100%;
+      }
+    }
+
+    .row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    app-search-navbar{
+      margin-right: auto;
+    }
+
+    .avatar {
+      padding: 0;
+      margin-left: 1em;
+      overflow: hidden;
+      position: relative;
+      border-radius: 200px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .btn {
+      color: $black_medium_emphasis;
+      transition: $animation;
+      letter-spacing: -0.25px !important;
+      &:hover {
+        color: $black_high_emphasis;
+      }
+    }
+
+    .router-link-active {
+      color: $color_primary_500 !important;
+    }
+
+    .btn-login {
+      margin-left: 1em;
+    }
+
+    .separate-line-vert {
+      margin: 0 0.5em;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-right: 2.5em;
+      @include lt-md {
+        justify-content: flex-start;
+        margin-left: 2em;
+        margin-bottom: 2em;
+      }
+      img {
+        width: 65px;
+      }
+      .icon {
+        width: 32px;
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  .toolbar-mobile{
+    display: none;
+    @include lt-md{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 54px;
+      border-bottom: $borderLight;
+      box-sizing: border-box;
+      padding: 0 1em;
+
+
+
+      .logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        img{
+          width: 3em;
+        }
+      }
+
+      .btn-menu{
+        margin-right: auto;
+      }
+
+      .sidebar{
+        background-color: white;
+        position: fixed;
+        top: 53px;
+        z-index: 10;
+        left: 0;
+        width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
+        height: 0;
+        max-height: 100%;
+        overflow-y: auto;
+        transition: $animation;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .sidebar-open{
+        height: auto;
+        padding: 1em;
+        overflow-y: initial;
+      }
+
+      .search{
+        margin-bottom: 1em;
+      }
+
+      .row{
+        border-top: $borderLight;
+        padding-top: 1em;
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .toolbar-scrolled{
+    border-bottom: $borderLight;
+    box-shadow: $box_shadow_12;
+  }
+
+
+}

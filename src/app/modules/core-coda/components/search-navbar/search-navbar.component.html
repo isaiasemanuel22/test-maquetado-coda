@@ -1,0 +1,48 @@
+<div class="search-component" [ngClass]="{'search-active': inputSearch2 != ''}">
+  <mat-form-field mat-dialog-title appearance="outline">
+    <input matInput type="text" placeholder="Search Anything" [(ngModel)]="inputSearch2" [formControl]="inputSearch" (click)="onOpen()" autocomplete="off" />
+    <mat-icon matPrefix>search</mat-icon>
+    <button *ngIf="inputSearch2 != ''" mat-icon-button matSuffix mat-dialog-close (click)="onClose()">
+      <mat-icon color="warn">close</mat-icon>
+    </button>
+    <button mat-icon-button matSuffix matTooltip="Filters" [matMenuTriggerFor]="filters">
+      <mat-icon>tune</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div class="overflow" *ngIf="list?.length">
+    <div class="searches" @componentAnimation>
+      <a mat-button mat-dialog-close class="component-animation" *ngFor="let item of list" [routerLink]="['/']" (click)="onClose()">
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <div>
+          <p class="title">{{ item.title }}</p>
+          <p class="breadcrumb color-primary"><small>{{ item.slug }}</small></p>
+        </div>
+      </a>
+    </div>
+
+    <!-- <app-empty-screen-component *ngIf="!list?.length" [title]="'Sorry, no results found'"
+      [text]="'Modify your search. Here are some ideas: 1.Make sure all the words are spelled correctly, 2.Try different search terms, 3.Use less keywords'">
+    </app-empty-screen-component> -->
+
+    <!--<div *ngIf="search_input == ''" class="most-recent-searches">
+        <h2><b>Most recent searches</b></h2>
+        <a [routerLink]="['/routePath']" mat-button mat-dialog-close class="component-animation" *ngFor="let item of searches.slice(0,5)">
+          <h3 class="title">Small title here</h3>
+          <div class="breadcrumb color-primary">Newsroom > Press releases</div>
+        </a>
+    </div>-->
+  </div>
+</div>
+
+<mat-menu #filters="matMenu">
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>News (articles)</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Practitioner / Instructor</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Event</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Course</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Video</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Testimonial</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>IBA Topics (company, member...)</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Store (product)</mat-checkbox></button>
+  <button mat-menu-item (click)="$event.stopPropagation()"><mat-checkbox>Forum (Communities, Posts)</mat-checkbox></button>
+</mat-menu>

@@ -1,0 +1,45 @@
+.example-card {
+  width: 390px;
+  margin-left: 11px;
+  margin-right: 11px;
+  height: 300px;
+  .header-card {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .header-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .image-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .content-post{
+    height:calc(100% - 130px);
+    font-size: 13px;
+  }
+
+  .footerCard {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .date {
+      color: #7a7a7a;
+    }
+    .origin {
+      color: #91460e;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

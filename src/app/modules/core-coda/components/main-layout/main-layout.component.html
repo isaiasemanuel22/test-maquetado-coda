@@ -1,0 +1,151 @@
+<div class="main-layout">
+  <nav class="toolbar" [ngClass]="{'toolbar-scrolled': scrolled}">
+    <div class="container">
+      <a [routerLink]="['/']" class="logo">
+        <img src="/assets/img/logos/bodytalk-logo.svg" alt="BodyTalk" />
+      </a>
+      <div class="rows">
+        <div class="row">
+          <app-search-navbar></app-search-navbar>
+          <button mat-button class="btn" (click)="languageCurrencyButton()">English</button>
+          <div class="separate-line-vert"></div>
+          <button mat-button class="btn" (click)="languageCurrencyButton()">USD</button>
+          <div class="separate-line-vert"></div>
+          <button *ngIf="isLogged" mat-icon-button class="btn-icon" matTooltip="Notifications">
+            <mat-icon>notifications_none</mat-icon>
+          </button>
+          <button mat-icon-button class="avatar" [matMenuTriggerFor]="menu" matTooltip="Axel Camiletti">
+            <img [src]="'currentUser!.photo'" alt="'asd'" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
+          </button>
+          <button *ngIf="!isLogged" mat-flat-button color="primary" class="btn-login"> Sign In </button>
+        </div>
+        <div class="row">
+          <button routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="practitioner" class="btn">
+            Practitioners <mat-icon>arrow_drop_down</mat-icon> </button>
+          <button routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="courses" class="btn"> Courses
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <button routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="careers" class="btn"> Careers
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <button routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="learnMore" class="btn"> Learn
+            more <mat-icon>arrow_drop_down</mat-icon></button>
+          <button routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="store" class="btn"> Store
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="toolbar toolbar-mobile" [ngClass]="{'toolbar-scrolled': scrolled}">
+    <button mat-icon-button class="btn-menu" (click)="isSidebarOpen = !isSidebarOpen">
+      <mat-icon *ngIf="!isSidebarOpen">menu</mat-icon>
+      <mat-icon *ngIf="isSidebarOpen">close</mat-icon>
+    </button>
+    <div class="logo">
+      <a [routerLink]="['/routePath']" routerLinkActive="router-link-active">
+        <img src="/assets/img/logos/icon.svg" alt="BodyTalk" />
+      </a>
+    </div>
+    <button mat-icon-button class="avatar" [matMenuTriggerFor]="menu" matTooltip="Axel Camiletti">
+      <img [src]="'currentUser!.photo'" alt="'asd'" onerror="this.src='/assets/img/user-avatar-empty.svg';" />
+    </button>
+
+    <div class="sidebar" [ngClass]="{'sidebar-open': isSidebarOpen}">
+      <app-search-navbar></app-search-navbar>
+      <button [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-button
+        [matMenuTriggerFor]="practitioner" class="btn"> Practitioners <mat-icon> arrow_drop_down</mat-icon></button>
+      <button [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-button
+        [matMenuTriggerFor]="courses" class="btn"> Courses <mat-icon>arrow_drop_down</mat-icon></button>
+      <button [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-button
+        [matMenuTriggerFor]="careers" class="btn"> Careers <mat-icon>arrow_drop_down</mat-icon></button>
+      <button [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-button
+        [matMenuTriggerFor]="learnMore" class="btn"> Learn more <mat-icon>arrow_drop_down</mat-icon></button>
+      <button [routerLink]="['/store/']" routerLinkActive="router-link-active" mat-button [matMenuTriggerFor]="store"
+        class="btn"> Store <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+      <div class="row d-flex">
+        <button mat-button class="btn" (click)="languageCurrencyButton()">English</button>
+        <div class="separate-line-vert"></div>
+        <button mat-button class="btn" (click)="languageCurrencyButton()">USD</button>
+      </div>
+    </div>
+  </nav>
+
+  <div fxHide fxShow.lt-md class="background" [ngClass]="{ 'background-active': isSidebarOpen }"
+    (click)="isSidebarOpen = false"></div>
+
+  <div class="container_pages animated" [ngClass]="{ container_pages_open: isSidebarOpen }">
+      <router-outlet name="child1"></router-outlet>
+      <router-outlet name="child2"></router-outlet>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+
+<mat-menu #menu class="mat-menu-toolbar-account">
+  <div class="header">
+    <h4><b>Hi, Axel Camiletti</b></h4>
+    <p class="body-2">Instructor</p>
+  </div>
+  <mat-divider></mat-divider>
+  <a [routerLink]="['/profile/settings']" mat-menu-item>
+    <mat-icon>account_circle</mat-icon> Profile
+  </a>
+  <a [routerLink]="['/profile/settings']" mat-menu-item>
+    <mat-icon>downloading</mat-icon> Downloads
+  </a>
+  <a [routerLink]="['/profile/settings']" mat-menu-item>
+    <mat-icon>forum</mat-icon> Forums
+  </a>
+  <a [routerLink]="['/profile/settings']" mat-menu-item>
+    <mat-icon>group_work</mat-icon> Study Groups and Events
+  </a>
+  <a [routerLink]="['/profile/settings']" mat-menu-item color="accent">
+    <mat-icon>card_membership</mat-icon> Update Membership
+  </a>
+  <mat-divider></mat-divider>
+  <a [routerLink]="['/profile/settings']" mat-menu-item> Account Settings </a>
+  <button mat-menu-item (click)="onClickLogout()"> Logout </button>
+</mat-menu>
+
+<mat-menu #practitioner="matMenu">
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Find a Certified
+    Practitioner</a>
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Find Animal
+    Practitioners</a>
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Find Advances
+    Practitioners</a>
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Find PaRama
+    Practitioners</a>
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Find
+    Instructors</a>
+  <a [routerLink]="['/practitioners-instructors']" routerLinkActive="router-link-active" mat-menu-item>Read more
+    about....</a>
+</mat-menu>
+
+<mat-menu #courses="matMenu">
+  <a [routerLink]="['/courses']" routerLinkActive="router-link-active" mat-menu-item>Find a Live Course</a>
+  <a [routerLink]="['/courses']" routerLinkActive="router-link-active" mat-menu-item>Find a Self-Study Course</a>
+</mat-menu>
+
+<mat-menu #careers="matMenu">
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>Become a Practitioner</a>
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>Become an Instructor
+    Non-Profit-Work</a>
+</mat-menu>
+
+<mat-menu #learnMore="matMenu">
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>IBA</a>
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>Membership</a>
+  <a [routerLink]="['/news']" routerLinkActive="router-link-active" mat-menu-item>News</a>
+  <a [routerLink]="['/videos']" routerLinkActive="router-link-active" mat-menu-item>Media / Video</a>
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>Resources</a>
+</mat-menu>
+
+<mat-menu #store="matMenu">
+  <a [routerLink]="['/routePath']" routerLinkActive="router-link-active" mat-menu-item>Self-Study Courses Books</a>
+  <a [routerLink]="['/store']" routerLinkActive="router-link-active" mat-menu-item>All Products</a>
+</mat-menu>
