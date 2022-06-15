@@ -27,6 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
+import { ListArticleComponent } from './components/list-article/list-article.component';
 
 // Menus
 
@@ -38,7 +39,8 @@ import { MatCardModule } from '@angular/material/card';
     ArticleCardComponent,
     ExampleModalComponent,
     NewsletterModalComponent,
-    SearchComponent
+    SearchComponent,
+    ListArticleComponent
   ],
   imports: [
     CommonModule,

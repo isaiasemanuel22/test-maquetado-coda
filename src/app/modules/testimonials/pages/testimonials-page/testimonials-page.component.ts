@@ -28,6 +28,13 @@ export class TestimonialsPageComponent implements OnInit {
     post: "I received this lovely email from the handler of one of the CARDA Search & Rescue canines, a group I volunteer with to aid in the release of secondary PTSD.",
     date: '15/12/2021  ·  8:15 AM',
     origin : 'Search & Rescue Canine'
+  },
+  {
+    name: 'Charlene Cooper',
+    profesion: 'Member',
+    post: "I received this lovely email from the handler of one of the CARDA Search & Rescue canines, a group I volunteer with to aid in the release of secondary PTSD.",
+    date: '15/12/2021  ·  8:15 AM',
+    origin : 'Search & Rescue Canine'
   }
   
 

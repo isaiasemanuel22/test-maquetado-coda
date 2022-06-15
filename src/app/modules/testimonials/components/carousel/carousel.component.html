@@ -1,4 +1,4 @@
-<div class="content-cards">
+<!--div class="content-cards">
     <div class="background-cards">
     </div>
 
@@ -9,22 +9,47 @@
 
     <div class="buttons">
         <div class="button left">
-            <mat-icon class="icon">arrow_back_ios</mat-icon>
+            
         </div>
         <div class="button rigth">
-            <mat-icon class="icon">arrow_forward_ios</mat-icon>
+            
         </div>
     </div>
 
     <div class="items">
         <div class="content-testimonials-cards">
-            <ng-content #itemsCard>
 
-            </ng-content>
         </div>
-
-
-
     </div>
 
+</div-->
+
+<div class="container" #container>
+    <div class="background-cards">
+    </div>
+    <div class="button left" *ngIf="totalPages > 1" (click)="currentPage != 1 && changePage(-1)"
+        [ngClass]="{ disabled: currentPage === 1 }">
+        <mat-icon class="icon">arrow_back_ios</mat-icon>
+    </div>
+    <div class="cards" [ngClass]="{ 'w-100': totalPages === 1 }">
+        <div class="overflow" [ngStyle]="{ width: overflowWidth, left: pagePosition }">
+            <div class="card" *ngFor="let i of arr; let index = index" [ngStyle]="{ width: cardWidth }">
+                <div class="content-card">
+                    <testimonial-card [testimonial]="i"></testimonial-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="button right" *ngIf="totalPages > 1" (click)="currentPage != totalPages && changePage(+1)"
+        [ngClass]="{ disabled: currentPage === totalPages }">
+        <mat-icon class="icon">arrow_forward_ios</mat-icon>
+    </div>
+
+    
+
+    <div class="points">
+        <point *ngFor="let point of points; let i = index" [activeButton]="point.state" [index]="i"
+            (setButton)="changeActive($event)"></point>
+    </div>
 </div>

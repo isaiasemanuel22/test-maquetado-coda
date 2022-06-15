@@ -1,23 +1,119 @@
-.container-article{
+.container-article {
     max-width: 840px;
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 50px;
-    .example-card{
+    .example-card {
         height: 100%;
         display: flex;
         align-items: center;
-        .content-info{
+        box-shadow: none;
+        .content-all-info {
             height: 100%;
-            margin-right: 10px;
-            .text-title{
-                line-height: normal;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: column;
+            margin-right: 30px;
+            .content-info {
+                margin-right: 10px;
+                .text-title {
+                    line-height: normal;
+                }
+            }
+            .footerCard{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .origin{
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    .avatar{
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-right: 5px;
+                    }.username{
+                        min-width: 100px;
+                    }
+                }.date{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin: none;
+                    }
+                }
             }
         }
     }
-    .image{
+    .image {
         height: 100%;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .container-article {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        margin-bottom: 40px;
+        .example-card {
+            width: 100%;
+            display: flex;
+            flex-flow: column-reverse;
+            box-shadow: none;
+            .content-all-info {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-flow: column;
+                margin-right: 0px;
+                .content-info {
+                    .text-title {
+                        line-height: normal;
+                        font-size: 18px;
+                    }
+                }
+                .footerCard{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .origin{
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        .avatar{
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin-right: 5px;
+                        }.username{
+                            min-width: 100px;
+                        }
+                    }.date{
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        p{
+                            margin: none;
+                        }
+                    }
+                }
+            }
+        }
+        .image {
+           width: 100%;
+           height: 180px;
+           margin-bottom: 10px;
+        }
     }
 }

@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-flow: column;
+    margin-bottom: 100px;
     .content-testimonials {
         max-width: 1200px;
         display: flex;
@@ -27,6 +28,12 @@
         width: 100%;
         .content-testimonials{
             width: 100vw;
+            h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 50px;
         }
+        }
+        
     }
 }
