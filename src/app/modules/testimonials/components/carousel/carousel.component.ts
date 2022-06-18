@@ -54,23 +54,12 @@ export class CarouselComponent implements OnInit {
     this.initializeSlider();
   }
 
-  ngAfterViewInit(){
-
-   
-
-  }
-
   initializeSlider() {
     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
     this.calcPoints();
     this.overflowWidth = `calc(${this.totalPages * 100}% + ${this.totalPages *
       10}px)`;
     this.cardWidth = `calc((${100 / this.totalPages}%) / ${this.cardsPerPage})`;
-
-      console.log(this.totalPages)
-      console.log(this.overflowWidth);
-      console.log(this.cardWidth);
-      console.log(this.cardsPerPage);
   }
 
   getCardsPerPage() {
